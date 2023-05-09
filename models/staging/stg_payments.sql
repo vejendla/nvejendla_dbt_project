@@ -1,6 +1,6 @@
 with source as (
 
-    select * from raw.stripe.payment
+    select * from {{ source('stripe','payment')}}
 
 ),
 
@@ -14,7 +14,6 @@ staged as (
         amount/100 as amount,
         created as created_date,
         _batched_at
-
     from source
 )
 

@@ -1,5 +1,5 @@
 with source as (
-    select * from raw.jaffle_shop.customers
+    select * from {{ source('jaffle_shop', 'customers') }}
 ),
 
 staged as (
